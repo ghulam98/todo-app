@@ -17,15 +17,16 @@ const deleteTask = (data)=>{
   
 }
 const addTask = (data)=>{
+  let date= new Date().toLocaleString();
   if(tasks.length===0){
-    setTasks([{id:1,desc:data}])
+    setTasks([{id:1,desc:data, date:date}])
   }else{
-    setTasks([{id:tasks.length+1,desc:data},...tasks])
+    setTasks([{id:tasks.length+1,desc:data, date:date},...tasks])
   }
 }
   return (
     <>
-<Header/>
+{/* <Header/> */}
 
 <Todos data={tasks} deleteTask={deleteTask} addTask={addTask} />
 </>

@@ -8,6 +8,7 @@ export default function Add(props) {
       console.log("lll")
       if(!kam){
         alert("input field can't be empty")
+        return
       }
       props.addTask(kam)
       setKam("")

@@ -15,7 +15,7 @@ export default function Todos(props) {
 
             <p className="mb-2"><span className="h2 me-2">Team Meeting</span> <span
                 className="badge bg-danger">checklist</span></p>
-            <p className="text-muted pb-2">04/01/2020 • ML - 1321</p>
+            <p className="text-muted pb-2">Last Update: {props.data.length?props.data[0].date:"No any task"}</p>
 
             {/* <ul className="list-group rounded-0">
               <li className="list-group-item border-0 d-flex align-items-center ps-0">

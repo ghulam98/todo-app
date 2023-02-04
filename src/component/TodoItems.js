@@ -18,16 +18,20 @@ export default function TodoItems(props) {
             
             {/* {(()=>{if(props.data.length ) return <b>knkknnkn</b>})()} */}
             { props.data.length!==0?props.data.map((itm)=>{
-                    return(
+                    return(<>
                     <li className="list-group-item border-0 d-flex align-items-center ps-0" key={itm.id}>
                     <input className="form-check-input me-3" type="checkbox" value="" aria-label="..." />
                     {itm.desc}
-                    <button className="btn btn-sm btn-outline-danger" onClick={()=>props.deleteTask(itm)} >Delete</button>
                 </li>
+                    <div style={{ right: 0}}>
+                    <button className="btn btn-sm btn-outline-danger" onClick={()=>props.deleteTask(itm)} >Delete</button>
+                    <i>{itm.date}</i>
+                    </div>
+                    </>
                     )
                 }):
            
-                 <b>No Any task remain. U did it Congrats.!</b>
+                 <b>No Any task remain. U did all, Congrats.!</b>
               
             
             }
