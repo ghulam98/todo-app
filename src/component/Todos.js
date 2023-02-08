@@ -29,7 +29,7 @@ export default function Todos(props) {
              
             </ul> */}
             <Add addTask={props.addTask}/>
-            <TodoItems data={props.data} deleteTask={props.deleteTask} addTask={props.addTask}/>
+            <TodoItems data={props.data} deleteTask={props.deleteTask} addTask={props.addTask} update = {props.update}/>
 
             <div className="divider d-flex align-items-center my-4">
               <p className="text-center mx-3 mb-0" style={{color: '#a2aab7'}}>Shared with</p>

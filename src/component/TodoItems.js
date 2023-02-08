@@ -1,7 +1,10 @@
 
 
 export default function TodoItems(props) {
+const check = (isChecked,id)=>{
+  props.update(isChecked,id)
 
+}
   return (
     <div>
            
@@ -19,14 +22,20 @@ export default function TodoItems(props) {
             {/* {(()=>{if(props.data.length ) return <b>knkknnkn</b>})()} */}
             { props.data.length!==0?props.data.map((itm)=>{
                     return(<>
+                    {itm.flag?
                     <li className="list-group-item border-0 d-flex align-items-center ps-0" key={itm.id}>
-                    <input className="form-check-input me-3" type="checkbox" value="" aria-label="..." />
+                    <input className="form-check-input me-3" onChange={(e)=>check(e.target.checked, itm.id)} type="checkbox" value="" aria-label="..." />
                     {itm.desc}
+                    <small> | {itm.date}</small>
                 </li>
-                    <div style={{ right: 0}}>
+                    :
+                    <li className="list-group-item border-0 d-flex align-items-center ps-0" key={itm.id}>
+                    <input className="form-check-input me-3" onChange={(e)=>check(e.target.checked, itm.id)} type="checkbox" value="" aria-label="..." />
+                    <s>{itm.desc}</s>
+                    <s><small> | {itm.date}</small></s>
                     <button className="btn btn-sm btn-outline-danger" onClick={()=>props.deleteTask(itm)} >Delete</button>
-                    <i>{itm.date}</i>
-                    </div>
+                </li>}
+                   
                     </>
                     )
                 }):

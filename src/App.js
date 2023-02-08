@@ -19,16 +19,27 @@ const deleteTask = (data)=>{
 const addTask = (data)=>{
   let date= new Date().toLocaleString();
   if(tasks.length===0){
-    setTasks([{id:1,desc:data, date:date}])
+    setTasks([{id:1,desc:data, date:date,flag:true}])
   }else{
-    setTasks([{id:tasks.length+1,desc:data, date:date},...tasks])
+    setTasks([{id:tasks.length+1,desc:data, date:date, flag:true},...tasks])
   }
+}
+const update = ( isChecked, id)=>{
+  setTasks( tasks.map((ele)=>{
+    if(ele.id === id){
+      if(isChecked) ele.flag=false
+      else ele.flag = true
+      console.log("updatyed",ele)
+    }
+    return ele
+  }))
+
 }
   return (
     <>
 {/* <Header/> */}
 
-<Todos data={tasks} deleteTask={deleteTask} addTask={addTask} />
+<Todos data={tasks} deleteTask={deleteTask} addTask={addTask} update = {update} />
 </>
   );
 }
