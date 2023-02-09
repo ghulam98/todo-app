@@ -30,7 +30,7 @@ const check = (isChecked,id)=>{
                 </li>
                     :
                     <li className="list-group-item border-0 d-flex align-items-center ps-0" key={itm.id}>
-                    <input className="form-check-input me-3" onChange={(e)=>check(e.target.checked, itm.id)} type="checkbox" value="" aria-label="..." />
+                    <input className="form-check-input me-3" checked onChange={(e)=>check(e.target.checked, itm.id)} type="checkbox" value="" aria-label="..." />
                     <s>{itm.desc}</s>
                     <s><small> | {itm.date}</small></s>
                     <button className="btn btn-sm btn-outline-danger" onClick={()=>props.deleteTask(itm)} >Delete</button>
